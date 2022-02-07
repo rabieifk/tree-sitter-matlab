@@ -85,7 +85,7 @@ module.exports = grammar({
       prec(3, repeat1(choice($.expression, $.structure, $.function_call))),
     structure_keyword: ($) => choice('if', 'for', 'while'),
 
-    identifier: ($) => /[a-zA-Z_]+[a-zA-Z0-9_]*/,
+    identifier: ($) => /[_]+[a-zA-Z0-9_]*/,
     factor: ($) =>
       prec.right(choice($._number, $.identifier, $.operation, $.function_call)),
     function_call: ($) =>
